@@ -10,39 +10,7 @@ var brunchtracker = function (title, address, nhd, opentime, website, lat, lng, 
     this.pId = placeId;
     this.upvotes = 0;
     this.downvotes = 0;
-    this.restcomment ="";
-
-    // table generation method
-    this.addInfo = function(){
-		
-    var locationRow = document.createElement("tr");
-    var nameCell = document.createElement("td");
-    nameCell.innerText = this.title;
-    locationRow.appendChild(nameCell);
-
-    //var opentimeCell = document.createElement("td");
-    //opentimeCell.innerText = this.opentime;
-    //locationRow.appendChild(opentimeCell);
-
-    var addressCell = document.createElement("td");
-    addressCell.innerText = this.address;
-    locationRow.appendChild(addressCell);
-
-	
-	var websiteAddress = this.website.replace("http://", "").replace("www.", "");
-	//var websiteParts = websiteAddress.split('/', 2);
-	var websitePart = websiteAddress.split('/', 2);
-	//console.log(websitePart[0]);
-
-    var websiteCell = document.createElement("td");
-    //websiteCell.innerHTML = "<a href=" +this.website +" target='_blank'>" + this.website.replace("http://", "") + "</a>";
-    websiteCell.innerHTML = "<a href=" +this.website +" target='_blank'>" + websitePart[0] + "</a>";
-
-	locationRow.appendChild(websiteCell);
-
-    var table = document.getElementById("restaurantListTable");
-    table.appendChild(locationRow);
-    };
+    this.restcomment ="";    
 };
 
 var brunchArr = [
@@ -156,43 +124,93 @@ var brunchArr = [
     new brunchtracker("Zell's Cafe", "1300 SE Morrison", "SE", "8:00 AM", "http://www.zellscafe.com/", 45.517043,  -122.652403,  'ChIJQYyi1KOglVQRS2A-s6kwbok'),
 ];
 
-//Search form local storage
-////time select listener
-//document.getElementById("dropdown").onchange = function() {
-//    localStorage.setItem('dropdown', document.getElementById("dropdown").value);
-//};
-//
-//if (localStorage.getItem('dropdown')) {
-//    document.getElementById("dropdown").options[localStorage.getItem('dropdown')].selected = true;
-//}
-//
-////tried to compact within loop, but each .onchange listener needs to "live" separately
-//document.getElementById("cb0").onchange = function() {
-//    var checkbox = document.getElementById("cb0");
-//    localStorage.setItem("cb0", checkbox.checked);
-//};
-//if (localStorage.getItem("cb0")) {
-//    var checked = JSON.parse(localStorage.getItem("cb0"));
-//    document.getElementById("cb0").checked = checked;
-//}
-//
-//document.getElementById("cb1").onchange = function() {
-//    var checkbox = document.getElementById("cb1");
-//    localStorage.setItem("cb1", checkbox.checked);
-//};
-//if (localStorage.getItem("cb1")) {
-//    var checked = JSON.parse(localStorage.getItem("cb1"));
-//    document.getElementById("cb1").checked = checked;
-//}
-//
-//document.getElementById("cb2").onchange = function() {
-//    var checkbox = document.getElementById("cb2");
-//    localStorage.setItem("cb2", checkbox.checked);
-//};
-//if (localStorage.getItem("cb2")) {
-//    var checked = JSON.parse(localStorage.getItem("cb2"));
-//    document.getElementById("cb2").checked = checked;
-//}
+//Table generation
+document.getElementById("dropdown").addEventListener("change", getIndex);
+
+// table generation
+function addInfo(currentRestaurant){
+
+    var locationRow = document.createElement("tr");
+    var nameCell = document.createElement("td");
+    nameCell.innerText = currentRestaurant.title;
+    locationRow.appendChild(nameCell);
+
+    //var opentimeCell = document.createElement("td");
+    //opentimeCell.innerText = this.opentime;
+    //locationRow.appendChild(opentimeCell);
+
+    var addressCell = document.createElement("td");
+    addressCell.innerText = currentRestaurant.address;
+    locationRow.appendChild(addressCell);
+
+
+    var websiteAddress = currentRestaurant.website.replace("http://", "").replace("www.", "");
+    //var websiteParts = websiteAddress.split('/', 2);
+    var websitePart = websiteAddress.split('/', 2);
+    //console.log(websitePart[0]);
+
+    var websiteCell = document.createElement("td");
+    //websiteCell.innerHTML = "<a href=" +this.website +" target='_blank'>" + this.website.replace("http://", "") + "</a>";
+    websiteCell.innerHTML = "<a href=" +currentRestaurant.website +" target='_blank'>" + websitePart[0] + "</a>";
+
+    locationRow.appendChild(websiteCell);
+
+    var table = document.getElementById("restaurantListTable");
+    table.appendChild(locationRow);
+};
+
+function getIndex() {
+	// clears table
+	var tableContainer = document.getElementById("restaurantListTable");
+	tableContainer.innerHTML = "";
+	
+    var selectDropDown = document.getElementById("dropdown");
+	var userSelectTime = selectDropDown.options[selectDropDown.selectedIndex].text;
+	
+	// check if SE is checked or not, if yes set the variable to "SE"
+	var SEboxChecked = document.getElementById("cb0").checked;
+	if (SEboxChecked == true){
+		var SEboxTrue = "SE";
+	}
+	// check if NE is checked or not, if yes set the variable to "NE"
+	var NEboxChecked = document.getElementById("cb1").checked;
+	if (NEboxChecked == true){
+		var NEboxTrue = "NE";
+	}		
+	// check if SW is checked or not, if yes set the variable to "SW"
+	var SWboxChecked = document.getElementById("cb2").checked;
+	if (SWboxChecked == true){
+		var SWboxTrue = "SW";
+	}
+	// if SE is selected print out se restaurants
+	for (var index = 0; index < brunchArr.length; index++) {
+	        var brunchArrTime = brunchArr[index].opentime;
+			if (brunchArr[index].nhd == SEboxTrue && parseInt(userSelectTime.replace(":", "")) >= parseInt(brunchArrTime.replace(":", ""))) {
+	
+			var currentRestaurant = brunchArr[index];
+			addInfo(currentRestaurant);
+		}
+	}
+	// if NE is selected print out ne restaurants
+	for (var index = 0; index < brunchArr.length; index++) {
+			var brunchArrTime = brunchArr[index].opentime;
+			if (brunchArr[index].nhd == NEboxTrue && parseInt(userSelectTime.replace(":", "")) >= parseInt(brunchArrTime.replace(":", ""))) {
+			var currentRestaurant = brunchArr[index];
+			addInfo(currentRestaurant);
+		}
+	}
+	// if SW is selected print out sw restaurants
+	for (var index = 0; index < brunchArr.length; index++) {
+			var brunchArrTime = brunchArr[index].opentime;
+			if (brunchArr[index].nhd == SWboxTrue && parseInt(userSelectTime.replace(":", "")) >= parseInt(brunchArrTime.replace(":", ""))) {
+			var currentRestaurant = brunchArr[index];
+			addInfo(currentRestaurant);
+		}
+	}	
+}
+
+
+
 
 //Review page output
 var reviewText = "";
