@@ -302,12 +302,6 @@ function visPage(pageId){
             display('reviews', 0);
         break;
 
-        case 'aboutpage':
-            display('launchpage', 0);
-            display('searchpage', 0);
-            display('reviews', 0);
-        break;
-
         case 'searchpage':
             display('launchpage', 0);
             display('searchpage', 1);
