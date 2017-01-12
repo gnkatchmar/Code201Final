@@ -116,7 +116,7 @@ var brunchArr = [
     new brunchtracker("Toast", "5222 SE 52nd", "SE", "8:00 AM", "http://www.toastpdx.com/", 45.485147,  -122.608612,  'ChIJM2_26AyglVQRWQ-7QfC11MY'),
     new brunchtracker("Tom's Restaurant", "3871 SE Division", "SE", "7:00 AM", "https://www.yelp.com/biz/toms-restaurant-portland", 45.505019,  -122.622889,  'ChIJH8MdromglVQR5iwNUflT'),    //problematic?
     new brunchtracker("Trinket", "2035 SE Cesar E Chavez", "SE", "8:00 AM", "http://trinketpdx.com/", 45.508241,  -122.622933,  'ChIJkSY8B4yglVQRNWqMEdmtC-s'),
-    new brunchtracker("Tusk", "2444 E Burnside", "NE", "10:00 AM", "https://www.tuskpdx.com/#home", 45.522637,  --122.640494,  'ChIJfcK8u76glVQRrGwwsGh_7z0'),
+    new brunchtracker("Tusk", "2444 E Burnside", "NE", "10:00 AM", "https://www.tuskpdx.com/#home", 45.522637,  -122.640494,  'ChIJfcK8u76glVQRrGwwsGh_7z0'),
     new brunchtracker("Utopia Cafe", "3308 SE Belmont", "SE", "7:30 AM", "http://www.yelp.com/biz/utopia-cafe-portland", 45.516325,  -122.630689,  'ChIJw3xqd5SglVQRt5wrrQflb7o'),
     new brunchtracker("Vivienne Kitchen & Pantry", "4128 NE Sandy", "NE", "9:00 AM", "http://www.viviennepdx.com/", 45.535510,  -122.620706,  'ChIJ90nPW9eglVQR0bEg4vApGgE'),
     new brunchtracker("Waffle Window", "3610 SE Hawthorne", "SE", "8:00 AM", "http://wafflewindow.com/", 45.511934,  -122.626527,  'ChIJpbw-9I2glVQR8HBWZ8Yr9K8'),
@@ -150,7 +150,6 @@ function addInfo(currentRestaurant){
     var websiteAddress = currentRestaurant.website.replace("http://", "").replace("www.", "");
     //var websiteParts = websiteAddress.split('/', 2);
     var websitePart = websiteAddress.split('/', 2);
-    //console.log(websitePart[0]);
 
     var websiteCell = document.createElement("td");
     //websiteCell.innerHTML = "<a href=" +this.website +" target='_blank'>" + this.website.replace("http://", "") + "</a>";
@@ -211,9 +210,6 @@ function getIndex() {
 		}
 	}	
 }
-
-
-
 
 //Review page output
 var reviewText = "";
@@ -302,6 +298,12 @@ function visPage(pageId){
     switch(pageId){
         case 'launchpage':
             display('launchpage', 1);
+            display('searchpage', 0);
+            display('reviews', 0);
+        break;
+
+        case 'aboutpage':
+            display('launchpage', 0);
             display('searchpage', 0);
             display('reviews', 0);
         break;
