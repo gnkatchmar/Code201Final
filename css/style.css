@@ -31,6 +31,10 @@ ul {
   display: inline-block;
 }
 
+footer {
+  text-align: center;
+}
+
 /*////////Header + Nav////////*/
 header {
   height: 50px;
