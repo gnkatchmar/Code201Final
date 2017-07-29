@@ -133,7 +133,7 @@ var brunchArr = [
     new brunchtracker("Produce Row Cafe", "204 SE Oak", "SE", "10:00 AM", "http://www.producerowcafe.com/brunch/", 45.519952,  -122.663557,  'ChIJ2d5YlaeglVQR1X4QBMB5WPg'),
     new brunchtracker("Proud Mary Coffee", "2012 NE Alberta", "NE", "8:00 AM", "https://proudmarycoffee.com", 45.558857,  -122.644434,  'ChIJC4lfHCCnlVQRcplEgf2qbfA'),
     new brunchtracker("Punch Bowl Social", "340 SW Morrison", "SW", "10:00 AM", "http://www.punchbowlsocial.com/location/portland", 45.518219,  -122.676329,  'ChIJbyVpmgUKlVQRrhpIO5w7hOc'),
-    new brunchtracker("Pure Spice", "2446 SE 87th", "SE", "9:30 AM", "http://purespicerestaurant.com", 45.505113,  -122.573884,  'ChIJx9a4LLOhlVQRxK7F39w-58k')
+    new brunchtracker("Pure Spice", "2446 SE 87th", "SE", "9:30 AM", "http://purespicerestaurant.com", 45.505113,  -122.573884,  'ChIJx9a4LLOhlVQRxK7F39w-58k'),
     new brunchtracker("Rain or Shine Coffeehouse", "5941 SE Division", "SE", "7:00 AM", "http://www.rainorshinepdx.com/", 45.505491,  -122.601835,  'ChIJzXbStF6glVQRAiQsYc84F7w'),
     new brunchtracker("Red Square Cafe", "4505 SE Belmont", "SE", "8:00 AM", "http://redsquarecafe.com/", 45.516729,  -122.615956,  'ChIJnx8BCu6glVQR7YzxlFUea4Q'),
     new brunchtracker("Redwood", "7915 SE Stark", "SE", "9:00 AM", "http://www.redwoodpdx.com/", 45.519306,  -122.582058,  'ChIJ8eJNxQahlVQRdBlO5VTe2Jw'),
