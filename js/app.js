@@ -174,7 +174,7 @@ var brunchArr = [
     new brunchtracker("Tapalaya", "28 NE 28th", "NE", "9:00 AM", "http://www.tapalaya.com/", 45.523387, -122.637052, 'ChIJHTTLIr-glVQRlk1hUrDPjRo'),
     new brunchtracker("Tasty n Alder", "580 SW 12th", "SW", "9:00 AM", "http://www.tastynalder.com/", 45.521341, -122.683477, 'ChIJq6qqqmqqlVQRcApXp7G1RGg'),
     new brunchtracker("Tasty n Sons", "3808 N Williams, #C", "NE", "9:00 AM", "http://www.tastynsons.com", 45.549918, -122.666518, 'ChIJF2v3lj-nlVQR3H5DI02jF5k'),
-    new brunchtracker("Tik Tok Restaurant & Bar (SE 82nd)", "3330 SE 82nd", "SE", "1:00 AM", "http://tiktokrestaurant.com", 45.498097, -122.578530, 'ChIJhZ-wrUmglVQRQqPBbcMSkgQ,
+    new brunchtracker("Tik Tok Restaurant & Bar (SE 82nd)", "3330 SE 82nd", "SE", "1:00 AM", "http://tiktokrestaurant.com", 45.498097, -122.578530, 'ChIJhZ-wrUmglVQRQqPBbcMSkgQ'),
     new brunchtracker("Toast", "5222 SE 52nd", "SE", "8:00 AM", "http://www.toastpdx.com/", 45.485147, -122.608612, 'ChIJM2_26AyglVQRWQ-7QfC11MY'),
     new brunchtracker("Tom's Restaurant", "3871 SE Division", "SE", "7:00 AM", "http://www.tomsrestaurant.net", 45.505019, -122.622889, 'ChIJH8MdromglVQR5iwNUflT-l0'), 
     new brunchtracker("Trinket", "2035 SE Cesar E Chavez", "SE", "8:00 AM", "http://trinketpdx.com/", 45.508241, -122.622933, 'ChIJkSY8B4yglVQRNWqMEdmtC-s'),
